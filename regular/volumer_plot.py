@@ -3,7 +3,6 @@ from kit.plot.volume_day import good_make_table_volumes
 from kit.telegram_api.send import send_photo_to_my_channel
 from datetime import datetime, timedelta
 
-
 date_str_param = str(datetime.now() - timedelta(days=1))[:10]
 date_string_title = (datetime.now() - timedelta(days=1)).strftime("%d %b %Y")
 
@@ -14,7 +13,10 @@ vol = info_list[1]
 cost = info_list[2]
 total = info_list[3]
 
-text = f"Объемы торгов за {date_string_title}\nОбoий оборот {total} ₽\nЛидер {name}\n{vol} лт.\n{cost} ₽"
+cost_string = f"{cost:,}".replace(',', ' ')
+total_string = f"{total:,}".replace(',', ' ')
+
+text = f"Объемы торгов {date_string_title}\nОбoий оборот {total_string} ₽\nЛидер {name}\n{vol} лт.\n{cost_string} ₽"
 
 out_filename = "volume_hbar.png"
 good_make_table_volumes(df=df, out_filename=out_filename, tittle=date_string_title)
