@@ -16,7 +16,7 @@ total = info_list[3]
 cost_string = f"{cost:,}".replace(',', ' ')
 total_string = f"{total:,}".replace(',', ' ')
 
-text = f"{date_string_title}\nОборот за день {total_string} ₽"
+text = f"🗓{date_string_title}\nДневной оборот\n{total_string} ₽"
 
 out_filename = "volume_hbar.png"
 good_make_table_volumes(df=df, out_filename=out_filename, tittle=date_string_title)
