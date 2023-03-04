@@ -29,9 +29,9 @@ for ticker in ticker_to_figi:
     time_delta = now_date - last_date_datetype
 
 
-    if time_delta < timedelta(hours=25):
+    if time_delta > timedelta(hours=25):
         print(f"{ticker} timedelta > 10 min")
-        break
+        continue
 
     last_rsi = rsi_series[r - 1]
     prev_rsi_1 = rsi_series[r - 2]
