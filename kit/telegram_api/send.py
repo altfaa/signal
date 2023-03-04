@@ -4,6 +4,7 @@ from telebot import TeleBot
 
 
 def send_photo_to_my_channel(photo_fp, text_message):
+    print(102)
     try:
         print(101)
         bot = TeleBot(telegram_token_A)
