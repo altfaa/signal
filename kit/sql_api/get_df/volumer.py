@@ -11,38 +11,44 @@ def get_df_all_volumes(date):
     cursor = con.cursor()
     list_ticker = []
     list_vol = []
-    list_proc = []
+    list_cost = []
     with con:
         for ticker in ticker_to_figi:
             try:
-                cursor.execute(f"SELECT Day, Volume FROM {ticker} WHERE Day ='{last_date}'")
+                cursor.execute(f"SELECT Day, Volume, Cost FROM {ticker} WHERE Day ='{last_date}'")
                 data = cursor.fetchall()
                 for row in data:
                     list_vol.append(row[1])
+                    list_cost.append(row[2])
                     list_ticker.append(ticker)
             except Exception as e:
                 print(e)
-    total = sum(list_vol)
+    total = sum(list_cost)
 
     name_s = pd.Series(list_ticker)
+    cost_s = pd.Series(list_cost)
     vol_s = pd.Series(list_vol)
-    # price_s = pd.Series(list_price)
-    # sum_s = pd.Series(list_sum)
-    # proc_s = pd.Series(list_procent)
 
     name_df = name_s.to_frame(name='Name')
-    vol_df = vol_s.to_frame(name='Volumes')
-    # price_df = price_s.to_frame(name='Price')
-    # sum_df = sum_s.to_frame(name='Sum')
-    # procent_df = proc_s.to_frame(name='%')
-    #
+    vol_df = cost_s.to_frame(name='Volumes')
+
     df = pd.concat([name_df, vol_df], axis=1)
 
     df['Name'] = name_s
     df['Volumes'] = vol_s
-    df['%'] = df['Volumes']/total * 100
+    df['Cost'] = cost_s
+    df['%'] = df['Cost']/total * 100
 
     df = df.round({'%': 2})
 
+    df_out = df.sort_values('%', ascending=False)
 
-    return df.sort_values('%', ascending=False)
+    name = df_out.Name.iloc[0]
+    print(name)
+    vol = df_out.Volumes.iloc[0]
+    print(vol)
+    cost = df_out.Cost.iloc[0]
+    print(cost)
+
+
+    return df_out
