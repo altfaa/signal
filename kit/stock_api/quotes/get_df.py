@@ -19,8 +19,9 @@ def get_and_check_date():
 
 
 def get_df_from_candles(candles):
-    list_open, list_close, list_high, list_low, list_vol, list_time = []
     print(111)
+    list_open, list_close, list_high, list_low, list_vol, list_time = []
+
     print(candles)
     for frame in candles.candles:
         beauty_time = (frame.time + datetime.timedelta(hours=3)).strftime("%Y-%m-%d %H:%M")
