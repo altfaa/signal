@@ -81,7 +81,7 @@ def get_df_from_stock_many_days(date1, date2, figi, interval):
         cur_date1 = start_date + datetime.timedelta(days=one_day)
         if cur_date1.weekday() in [5, 6]:  ## выходные пропускаем (субботу вскресенье)
             continue
-        cur_date2 = cur_date1 + datetime.timedelta(hours=13)
+        cur_date2 = cur_date1 + datetime.timedelta(hours=13) + datetime.timedelta(minutes=59)
         df_step = get_df_from_stock(figi=figi, date_start=cur_date1, date_end=cur_date2, interval=interval)
         df = pd.concat([df, df_step], ignore_index=True)
 
