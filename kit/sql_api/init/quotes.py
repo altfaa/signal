@@ -15,6 +15,7 @@ def create_quotes_and_fill_by_ticker(path_to_db: str, days_delta: int, interval:
     print("quotes db initialize")
     try:
         create_checker(path_to_db)
+        print(ticker_to_figi)
         for ticker in ticker_to_figi:
             if create_ticker_table_in_quotes(ticker, path_to_db):
                 print(ticker, "table created")
