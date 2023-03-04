@@ -71,7 +71,7 @@ def get_empty_df_quotes():
     return pd.DataFrame(columns=['Open', 'High', 'Low', 'Close', 'Volume', 'Date'])
 
 
-def get_df_from_stock_many_days(date1, date2, figi, candle_interval):
+def get_df_from_stock_many_days(date1, date2, figi, interval):
     user_year = date1.year
     user_month = date1.month
     user_day = date1.day
@@ -84,7 +84,7 @@ def get_df_from_stock_many_days(date1, date2, figi, candle_interval):
         if cur_date1.weekday() in [5, 6]:  ## выходные пропускаем (субботу вскресенье)
             continue
         cur_date2 = cur_date1 + datetime.timedelta(hours=13)
-        df_step = get_df_from_stock(figi=figi, date_start=cur_date1, date_end=cur_date2, interval="5m")
+        df_step = get_df_from_stock(figi=figi, date_start=cur_date1, date_end=cur_date2, interval=interval)
         df = df.append(df_step, ignore_index=True)
 
     return df
