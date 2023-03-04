@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 
 date_str_param = str(datetime.now() - timedelta(days=1))[:10]
-date_string_title = (datetime.now() - timedelta(days=1)).strftime("%d %b %Y %H:%M")
+date_string_title = (datetime.now() - timedelta(days=1)).strftime("%d %b %Y")
 
 df = get_df_all_volumes(date_str_param)
 out_filename = "123.png"
