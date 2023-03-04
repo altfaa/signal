@@ -1,7 +1,8 @@
-from os import path
-#pwd = os.getcwd()
-dirname = path.dirname(__file__)
+from pathlib import Path
 
-LOG_TO_REGULAR_FILL_15M = path.join(dirname, '../db/log_regular_fill_15m')
-LOG_TO_REGULAR_FILL_5M =  path.join(dirname, '../db/log_regular_fill_5m')
-LOG_TO_REGULAR_FILL_1H =  path.join(dirname, '../db/log_regular_fill_1h')
+
+dirname = Path.dirname(__file__).parents[1]
+
+LOG_TO_REGULAR_FILL_15M = Path.join(dirname, 'log', 'log_regular_fill_15m')
+LOG_TO_REGULAR_FILL_5M =  Path.join(dirname, 'log', 'log_regular_fill_5m')
+LOG_TO_REGULAR_FILL_1H =  Path.join(dirname, 'log', 'log_regular_fill_1h')

@@ -1,6 +1,7 @@
-import os
-pwd = os.getcwd()
-dirname = os.path.dirname(__file__)
+from pathlib import Path
 
-path_full_moex = os.path.join(dirname, '../catalog', 'full_moex')
-path_short_moex = os.path.join(dirname, '../catalog', 'short_moex')
+
+dirname = Path.dirname(__file__).parents[0]
+
+path_full_moex = Path.join(dirname, 'catalog', 'full_moex')
+path_short_moex = Path.join(dirname, 'catalog', 'short_moex')
