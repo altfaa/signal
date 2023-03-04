@@ -35,7 +35,7 @@ def get_df_from_candles(candles):
         list_close.append(cur_close)
         list_vol.append(cur_volume)
         list_time.append(beauty_time)
-
+    print(21)
     df = pd.DataFrame({
         'Open': list_open,
         'High': list_high,
