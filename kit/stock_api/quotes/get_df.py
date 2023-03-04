@@ -65,6 +65,7 @@ def get_df_from_stock(figi, interval, date_start: datetime, date_end: datetime):
             to=date_end,
             interval=candle_interval
         )
+        print(candles)
         return get_df_from_candles(candles)
 
 
