@@ -45,11 +45,11 @@ def get_df_all_volumes(date):
 
     name = df_out.Name.iloc[0]
     print(name)
-    vol = df_out.Volumes.iloc[0] / 1000
+    vol = df_out.Volumes.iloc[0]
     print(vol)
     cost = df_out.Cost.iloc[0] / 1000000
-    print(f"{name} {vol} лот. {cost} млн.руб")
-    print(f"{total/1000000} млн.руб - общий объем")
+    print(f"{name} {vol:.1f} лот. {cost} млн.руб")
+    print(f"{total/1000000:.1f} млн.руб - общий объем")
 
 
     return df_out
