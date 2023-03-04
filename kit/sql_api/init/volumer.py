@@ -32,7 +32,7 @@ def put_total_day_volume(ticker, date):
     volume, cost = get_day_volume_from_db(ticker, date)
     # dict = {date.strftime("%Y-%m-%d"): volume, }
     print([date.strftime("%Y-%m-%d"), volume, cost])
-    df = pd.DataFrame([date.strftime("%Y-%m-%d"), volume, cost], columns=['Day', 'Volume', 'Cost'])
+    df = pd.DataFrame([[date.strftime("%Y-%m-%d"), volume, cost]], columns=['Day', 'Volume', 'Cost'])
     print(df)
     con = sl.connect(DB_NAME_VOLUMER)
     if volume:
