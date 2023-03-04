@@ -14,11 +14,14 @@ def get_df_all_volumes(date):
     list_proc = []
     with con:
         for ticker in ticker_to_figi:
-            cursor.execute(f"SELECT Day, Volume FROM {ticker} WHERE Day ='{last_date}'")
-            data = cursor.fetchall()
-            for row in data:
-                list_vol.append(row[1])
-                list_ticker.append(ticker)
+            try:
+                cursor.execute(f"SELECT Day, Volume FROM {ticker} WHERE Day ='{last_date}'")
+                data = cursor.fetchall()
+                for row in data:
+                    list_vol.append(row[1])
+                    list_ticker.append(ticker)
+            except Exception as e:
+                print(e)
     total = sum(list_vol)
 
     name_s = pd.Series(list_ticker)
