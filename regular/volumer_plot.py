@@ -17,7 +17,7 @@ total = info_list[3]
 cost_string = f"{cost:,}".replace(',', ' ')
 total_string = f"{total / 1000000000:.1f}"
 
-text = f"Дневной оборот\n\n🗓{date_string_title}\n\n  __Σ__ {total_string} млрд.₽\n\n" + f"{CHANNEL_NAME}".replace("_",
+text = f"Дневной оборот\n\n🗓{date_string_title}\n\n __Σ__  {total_string} млрд.₽\n\n" + f"{CHANNEL_NAME}".replace("_",
                                                                                                                   "\\_")
 
 out_filename = "volume_hbar.png"
