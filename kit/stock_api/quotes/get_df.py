@@ -67,7 +67,7 @@ def get_df_from_stock(figi, interval, date_start: datetime, date_end: datetime):
             interval=candle_interval
         )
         #print(candles)
-        return get_df_from_candles(candles)
+    return get_df_from_candles(candles)
 
 
 def get_empty_df_quotes():
