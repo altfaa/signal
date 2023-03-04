@@ -53,7 +53,7 @@ for ticker in ticker_to_figi:
 
             text_last_date = last_date_datetype.strftime("%d %b %Y %H:%M")
 
-            text_message = f"""#{ticker} {name}\n\n⏰ *RSI Сигнал*\n\n🗓 {text_last_date}\n\n    _Price:_ {text_price} ₽\n    _RSI-14:_ {text_last_rsi}\n\n{CHANNEL_NAME} """
+            text_message = f"#{ticker} {name}\n\n⏰ *RSI Сигнал*\n\n🗓 {text_last_date}\n\n    _Price:_ {text_price} ₽\n    _RSI-14:_ {text_last_rsi}\n\n" + f"{CHANNEL_NAME}".replace("_","\\_")
             print(text_message)
             draw_rsi_3_plot(df=df, ticker=ticker, out_filename=out_filename, delta_days=7)
             photo_fp = open(out_filename, 'rb')
