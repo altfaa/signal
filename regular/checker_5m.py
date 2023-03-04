@@ -27,7 +27,7 @@ for ticker in ticker_to_figi:
     now_date = datetime.now()
 
     time_delta = now_date - last_date
-    print("DELTA ", time_delta.minute)
+    print("DELTA ", str(time_delta))
     now_hour = datetime.now().hour
 
     print("этот час", now_hour, "час из df", last_date_datetype.hour)
