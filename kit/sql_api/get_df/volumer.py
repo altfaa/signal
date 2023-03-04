@@ -3,9 +3,10 @@ import sqlite3 as sl
 from kit.pathes.volume import DB_NAME_VOLUMER
 from kit.catalog.get_full_moex_dicts import ticker_to_figi
 
+
 def get_df_all_volumes(date):
     print(date)
-    #df = pd.DataFrame()
+    # df = pd.DataFrame()
     last_date = str(date)[0:10]
     con = sl.connect(DB_NAME_VOLUMER)
     cursor = con.cursor()
@@ -37,19 +38,15 @@ def get_df_all_volumes(date):
     df['Name'] = name_s
     df['Volumes'] = vol_s
     df['Cost'] = cost_s
-    df['%'] = df['Cost']/total * 100
+    df['%'] = df['Cost'] / total * 100
 
     df = df.round({'%': 2})
 
     df_out = df.sort_values('%', ascending=False)
 
     name = df_out.Name.iloc[0]
-    print(name)
     vol = df_out.Volumes.iloc[0]
-    print(vol)
     cost = df_out.Cost.iloc[0] / 1000000
-    print(f"{name} {vol:.1f} лот. {cost} млн.руб")
-    print(f"{total/1000000:.1f} млн.руб - общий объем")
+    info_list = [name, vol, cost, total]
 
-
-    return df_out
+    return df_out, info_list
