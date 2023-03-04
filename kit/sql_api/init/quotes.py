@@ -37,7 +37,9 @@ def create_quotes_and_fill_by_ticker(path_to_db: str, days_delta: int, interval:
 def init_quotes_with_system_commands(path_to_db, days_delta, interval, sleep_sec):
     buffer_mark = "_buffer"
     delete_command = f"rm {path_to_db}"
+    delete_buf_command = f"rm {path_to_db}{buffer_mark}"
     move_command = f"mv {path_to_db}{buffer_mark} {path_to_db}"
+    system(delete_buf_command)
     if create_quotes_and_fill_by_ticker(f"{path_to_db}{buffer_mark}", days_delta, interval, sleep_sec):
         system(delete_command)
         system(move_command)
