@@ -57,6 +57,7 @@ def get_df_from_stock(figi, interval, date_start: datetime, date_end: datetime):
     else:
         return False
 
+    print(10)
     with Client(token) as client:
         candles = client.market_data.get_candles(
             figi=figi,
