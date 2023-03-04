@@ -33,6 +33,22 @@ def insert_first_row_to_checker(ticker, date, db_path):
             print(e)
             return False
 
+def create_checker(db_name):
+    con = sl.connect(db_name)
+    str_com = """
+        CREATE TABLE CHECKER (
+            Name TEXT,
+            Last TEXT
+        );
+    """
+    with con:
+        try:
+            con.execute(str_com)
+            con.commit()
+        except Exception as e:
+            print(e)
+            return f"error: {e}"
+    return "ok"
 
 def create_ticker_table_in_quotes(ticker, db_path):
     try:
