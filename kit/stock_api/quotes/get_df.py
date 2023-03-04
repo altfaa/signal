@@ -20,6 +20,7 @@ def get_and_check_date():
 
 def get_df_from_candles(candles):
     list_open, list_close, list_high, list_low, list_vol, list_time = []
+    print(111)
     print(candles)
     for frame in candles.candles:
         beauty_time = (frame.time + datetime.timedelta(hours=3)).strftime("%Y-%m-%d %H:%M")
@@ -65,7 +66,7 @@ def get_df_from_stock(figi, interval, date_start: datetime, date_end: datetime):
             to=date_end,
             interval=candle_interval
         )
-        print(candles)
+        #print(candles)
         return get_df_from_candles(candles)
 
 
