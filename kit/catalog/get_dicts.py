@@ -25,4 +25,4 @@ def get_dict(path):
         ticker_to_figi[ticker] = figi
         ticker_to_name[ticker] = name
 
-    return name_to_figi_dict[name], figi_to_name_dict[figi], figi_to_ticker[figi],  ticker_to_figi[ticker],  ticker_to_name[ticker]
+    return name_to_figi_dict, figi_to_name_dict, figi_to_ticker, ticker_to_figi,  ticker_to_name
