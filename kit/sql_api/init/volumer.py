@@ -26,7 +26,7 @@ def get_day_volume_from_db(ticker, date):
         df.Low = df.Low.astype(float)
         df.High = df.High.astype(float)
         df.Volume = df.Volume.astype(int)
-        return df.Volume.sum(), (df.Volume * df.Close * ticker_to_lots[ticker]).sum()
+        return df.Volume.sum(), (df.Volume * df.Close * int(ticker_to_lots[ticker])).sum()
 
 
 def put_total_day_volume(ticker, date):
