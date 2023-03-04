@@ -55,6 +55,7 @@ def init_volume():
         )
         for date in res:
             put_total_day_volume(ticker, date)
+    return True
 
 
 def init_volume_with_system_commands():
