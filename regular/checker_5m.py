@@ -11,7 +11,7 @@ from locale import setlocale, LC_ALL
 setlocale(LC_ALL, "")
 
 low = 20
-heigh = 73
+heigh = 78
 
 for ticker in ticker_to_figi:
     df = get_df_from_quotes_after_date(ticker=ticker, date_start=datetime.now() - timedelta(days=7),
