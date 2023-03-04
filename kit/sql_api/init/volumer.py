@@ -29,13 +29,13 @@ def get_day_volume_from_db(ticker, date):
         return df.Volume.sum(), (df.Volume * df.Close * int(ticker_to_lots[ticker])).sum()
 
 
-def put_total_day_volume(ticker, date):
+def put_total_day_volume(ticker, date, db_path):
     volume, cost = get_day_volume_from_db(ticker, date)
     # dict = {date.strftime("%Y-%m-%d"): volume, }
     print([date.strftime("%Y-%m-%d"), volume, cost])
     df = pd.DataFrame([[date.strftime("%Y-%m-%d"), volume, cost]], columns=['Day', 'Volume', 'Cost'])
     print(df)
-    con = sl.connect(DB_NAME_VOLUMER)
+    con = sl.connect(db_path)
     if volume:
         with con:
             inserted_count = df.to_sql(name=ticker, con=con, if_exists='append',
@@ -43,7 +43,7 @@ def put_total_day_volume(ticker, date):
             con.commit()
 
 
-def init_volume():
+def init_volume(db_path):
     for ticker in ticker_to_figi:
         # start_date = datetime.strptime(d, "%Y-%m-%d %H:%M")
 
@@ -54,7 +54,7 @@ def init_volume():
             max(start_date, end_date)
         )
         for date in res:
-            put_total_day_volume(ticker, date)
+            put_total_day_volume(ticker, date, db_path)
     return True
 
 
@@ -64,6 +64,6 @@ def init_volume_with_system_commands():
     delete_buf_command = f"rm {DB_NAME_VOLUMER}{buffer_mark}"
     move_command = f"mv {DB_NAME_VOLUMER}{buffer_mark} {DB_NAME_VOLUMER}"
     system(delete_buf_command)
-    if init_volume():
+    if init_volume(DB_NAME_VOLUMER):
         system(delete_command)
         system(move_command)
