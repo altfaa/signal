@@ -25,4 +25,22 @@ def get_dict(path):
         ticker_to_figi[ticker] = figi
         ticker_to_name[ticker] = name
 
-    return name_to_figi_dict, figi_to_name_dict, figi_to_ticker, ticker_to_figi,  ticker_to_name
+    return name_to_figi_dict, figi_to_name_dict, figi_to_ticker, ticker_to_figi, ticker_to_name
+
+
+def get_lots_info(path):
+    figi_to_lots = {}
+    ticker_to_lots = {}
+
+    df = read_csv(path, sep=";", header=None, skipinitialspace=True)
+    df.columns = ['figi', 'ticker', 'name', 'Country', 'Curency', 'lots']
+
+    for index, row in df.sort_values('ticker').iterrows():
+        figi = row['figi']
+        ticker = row['ticker']
+        lots = row['lots']
+
+        figi_to_lots[figi] = lots
+        ticker_to_lots[ticker] = lots
+
+    return figi_to_lots, ticker_to_lots
