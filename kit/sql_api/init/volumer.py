@@ -63,6 +63,3 @@ def init_volume_with_system_commands():
     if init_volume():
         system(delete_command)
         system(move_command)
-
-
-init_volume_with_system_commands()
