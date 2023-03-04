@@ -57,7 +57,7 @@ for ticker in ticker_to_figi:
 
             text_message = f"#{ticker} {name}\n\n⏰ *RSI Сигнал*\n\n🗓 {text_last_date}\n\n    _Price:_ {text_price} ₽\n    _RSI-14:_ {text_last_rsi}\n\n" + f"{CHANNEL_NAME}".replace("_","\\_")
             print(text_message)
-                draw_rsi_3_plot(df=df, ticker=ticker, out_filename=out_filename, delta_days=7)
+            draw_rsi_3_plot(df=df, ticker=ticker, out_filename=out_filename, delta_days=7)
             photo_fp = open(out_filename, 'rb')
             send_photo_to_my_channel(photo_fp=photo_fp, text_message=text_message)
             photo_fp.close()
