@@ -28,8 +28,8 @@ for ticker in ticker_to_figi:
     now_hour = datetime.now().hour
 
     print("этот час", now_hour, "час из df", last_date_datetype.hour)
-    if now_hour < last_date_datetype.hour:
-        break
+    # if now_hour > last_date_datetype.hour:
+    #     break
 
     last_rsi = rsi_series[r - 1]
     prev_rsi_1 = rsi_series[r - 2]
@@ -54,7 +54,7 @@ for ticker in ticker_to_figi:
             text_last_date = last_date_datetype.strftime("%d %b %Y %H:%M")
 
             text_message = f"""#{ticker} {name}\n\n⏰ *RSI Сигнал*\n\n🗓 {text_last_date}\n\n    _Price:_ {text_price} ₽\n    _RSI-14:_ {text_last_rsi}\n\n{CHANNEL_NAME} """
-
+            print(text_message)
             draw_rsi_3_plot(df=df, ticker=ticker, out_filename=out_filename, delta_days=7)
             photo_fp = open(out_filename, 'rb')
             send_photo_to_my_channel(photo_fp=photo_fp, text_message=text_message)
