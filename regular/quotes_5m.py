@@ -40,7 +40,7 @@ for ticker in ticker_to_figi:
                 sleep(5)
         else:
             # first fill in day
-            if (db_hour == 22 and db_min == 45) or (db_hour == 18 and db_min == 45):
+            if (db_hour == 23 and db_min == 45) or (db_hour == 18 and db_min == 45):
                 date_from -= timedelta(hours=2)
             else:  # outdated data in db, need to reload db
                 init_quotes_with_system_commands(path_to_db=DB_NAME_QUOTES_5M, days_delta=7, interval="5m",
