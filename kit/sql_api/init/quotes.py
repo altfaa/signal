@@ -20,8 +20,8 @@ def create_quotes_and_fill_by_ticker(path_to_db: str, days_delta: int, interval:
             if create_ticker_table_in_quotes(ticker, path_to_db):
                 print(ticker, "table created")
                 date_from = datetime.now() - timedelta(days=days_delta)
-                df = get_df_from_stock_many_days(figi=ticker_to_figi[ticker], interval=interval, date_start=date_from,
-                                       date_end=datetime.now())
+                df = get_df_from_stock_many_days(figi=ticker_to_figi[ticker], interval=interval, date1=date_from,
+                                       date2=datetime.now())
                 if df:
                     put_df_to_db(df, ticker, path_to_db)
                     print(ticker, "status: loaded", len(df.index), "rows")
