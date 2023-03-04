@@ -7,8 +7,7 @@ def get_df_from_quotes_after_date(ticker, date_start, db_path):
     with con:
         command = f"SELECT * FROM {ticker} WHERE DATE > '{date_start}'"
         df = pd.read_sql(command, con)
-        if df.empty:
-            return False
+
         df.Open = df.Open.astype(float)
         df.Close = df.Close.astype(float)
         df.Low = df.Low.astype(float)

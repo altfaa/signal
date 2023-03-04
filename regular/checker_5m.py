@@ -16,6 +16,7 @@ heigh = 70
 for ticker in ticker_to_figi:
     df = get_df_from_quotes_after_date(ticker=ticker, date_start=datetime.now() - timedelta(days=7),
                                        db_path=DB_NAME_QUOTES_5M)
+
     if(df.empty):
         continue
     rsi_window = 14
