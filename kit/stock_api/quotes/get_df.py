@@ -80,6 +80,7 @@ def get_df_from_stock_many_days(date1, date2, figi, interval):
     days_num = delta.days
     df = get_empty_df_quotes()
     for one_day in (range(0, days_num + 1)):
+        print(df)
         cur_date1 = start_date + datetime.timedelta(days=one_day)
         if cur_date1.weekday() in [5, 6]:  ## выходные пропускаем (субботу вскресенье)
             continue
