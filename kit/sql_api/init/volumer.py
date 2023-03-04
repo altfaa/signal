@@ -64,6 +64,6 @@ def init_volume_with_system_commands():
     delete_buf_command = f"rm {DB_NAME_VOLUMER}{buffer_mark}"
     move_command = f"mv {DB_NAME_VOLUMER}{buffer_mark} {DB_NAME_VOLUMER}"
     system(delete_buf_command)
-    if init_volume(DB_NAME_VOLUMER):
+    if init_volume(DB_NAME_VOLUMER + buffer_mark):
         system(delete_command)
         system(move_command)
