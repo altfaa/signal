@@ -86,6 +86,7 @@ def get_df_from_stock_many_days(date1, date2, figi, interval):
             continue
         cur_date2 = cur_date1 + datetime.timedelta(hours=13)
         df_step = get_df_from_stock(figi=figi, date_start=cur_date1, date_end=cur_date2, interval=interval)
+        print(df_step)
         df = df.append(df_step, ignore_index=True)
 
     return df
