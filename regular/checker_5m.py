@@ -28,7 +28,7 @@ for ticker in ticker_to_figi:
     now_hour = datetime.now().hour
 
     print("этот час", now_hour, "час из df", last_date_datetype.hour)
-    if now_hour > last_date_datetype.hour:
+    if now_hour < last_date_datetype.hour:
         break
 
     last_rsi = rsi_series[r - 1]
