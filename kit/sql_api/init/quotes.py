@@ -7,9 +7,6 @@ from os import system
 from time import sleep
 
 
-
-
-
 def create_quotes_and_fill_by_ticker(path_to_db: str, days_delta: int, interval: str, sleep_sec: int):
     __doc__ = "interval is 5m or 15m"
     print("quotes db initialize")
