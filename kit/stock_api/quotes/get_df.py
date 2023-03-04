@@ -19,10 +19,8 @@ def get_and_check_date():
 
 
 def get_df_from_candles(candles):
-    print(111)
     list_open, list_close, list_high, list_low, list_vol, list_time = [], [], [], [], [], []
 
-    print(candles)
     for frame in candles.candles:
         beauty_time = (frame.time + datetime.timedelta(hours=3)).strftime("%Y-%m-%d %H:%M")
         cur_open = frame.open.units + frame.open.nano / 1000000000
@@ -37,7 +35,6 @@ def get_df_from_candles(candles):
         list_close.append(cur_close)
         list_vol.append(cur_volume)
         list_time.append(beauty_time)
-    print(21)
     df = pd.DataFrame({
         'Open': list_open,
         'High': list_high,
@@ -46,7 +43,6 @@ def get_df_from_candles(candles):
         'Volume': list_vol,
         'Date': list_time
     })
-    print(20)
     return df
 
 
@@ -59,7 +55,6 @@ def get_df_from_stock(figi, interval, date_start: datetime, date_end: datetime):
     else:
         return False
 
-    print(10)
     with Client(token) as client:
         candles = client.market_data.get_candles(
             figi=figi,
@@ -67,7 +62,6 @@ def get_df_from_stock(figi, interval, date_start: datetime, date_end: datetime):
             to=date_end,
             interval=candle_interval
         )
-        #print(candles)
     return get_df_from_candles(candles)
 
 
@@ -84,14 +78,11 @@ def get_df_from_stock_many_days(date1, date2, figi, interval):
     days_num = delta.days
     df = get_empty_df_quotes()
     for one_day in (range(0, days_num + 1)):
-        print(df)
         cur_date1 = start_date + datetime.timedelta(days=one_day)
         if cur_date1.weekday() in [5, 6]:  ## выходные пропускаем (субботу вскресенье)
             continue
         cur_date2 = cur_date1 + datetime.timedelta(hours=13)
-        print(cur_date1, cur_date2)
         df_step = get_df_from_stock(figi=figi, date_start=cur_date1, date_end=cur_date2, interval=interval)
-        print(df_step)
         df = df.append(df_step, ignore_index=True)
 
     return df
