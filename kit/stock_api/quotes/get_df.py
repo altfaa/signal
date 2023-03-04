@@ -44,7 +44,7 @@ def get_df_from_candles(candles):
         'Volume': list_vol,
         'Date': list_time
     })
-
+    print(20)
     return df
 
 
