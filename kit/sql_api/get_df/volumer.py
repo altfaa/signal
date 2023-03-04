@@ -46,7 +46,7 @@ def get_df_all_volumes(date):
 
     name = df_out.Name.iloc[0]
     vol = df_out.Volumes.iloc[0]
-    cost = df_out.Cost.iloc[0] / 1000000
+    cost = df_out.Cost.iloc[0]
     info_list = [name, vol, cost, total]
 
     return df_out, info_list
