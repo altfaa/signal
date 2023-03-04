@@ -20,7 +20,7 @@ def get_and_check_date():
 
 def get_df_from_candles(candles):
     print(111)
-    list_open, list_close, list_high, list_low, list_vol, list_time = []
+    list_open, list_close, list_high, list_low, list_vol, list_time = [], [], [], [], [], []
 
     print(candles)
     for frame in candles.candles:
