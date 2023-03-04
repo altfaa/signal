@@ -71,7 +71,7 @@ def get_empty_df_quotes():
     return pd.DataFrame(columns=['Open', 'High', 'Low', 'Close', 'Volume', 'Date'])
 
 
-def get_df_for_big_interval(date1, date2, figi, candle_interval):
+def get_df_from_stock_many_days(date1, date2, figi, candle_interval):
     user_year = date1.year
     user_month = date1.month
     user_day = date1.day
