@@ -3,5 +3,5 @@ from pathlib import Path
 
 dirname = Path(__file__).parents[0]
 
-path_full_moex = Path.join(dirname, 'catalog', 'full_moex')
-path_short_moex = Path.join(dirname, 'catalog', 'short_moex')
+path_full_moex = Path(dirname, 'catalog', 'full_moex')
+path_short_moex = Path(dirname, 'catalog', 'short_moex')
