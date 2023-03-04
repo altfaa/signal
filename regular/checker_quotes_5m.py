@@ -17,7 +17,7 @@ for ticker in ticker_to_figi:
     df = get_df_from_quotes_after_date(ticker=ticker, date_start=datetime.now() - timedelta(days=7),
                                        db_path=DB_NAME_QUOTES_5M)
 
-    if(df.empty):
+    if df.empty:
         continue
     rsi_window = 14
     rsi_series = momentum.rsi(close=df['Close'], window=rsi_window, fillna=False)
@@ -28,9 +28,9 @@ for ticker in ticker_to_figi:
     now_date = datetime.now()
     time_delta = now_date - last_date_datetype
 
-    if time_delta > timedelta(minutes=10):  # debugging
+    if time_delta > timedelta(minutes=9):  # debugging
     #if time_delta > timedelta(hours=25): #  debugging
-        print(f"{ticker} timedelta > 10 min")
+        print(f"{ticker} timedelta > 9 min")
         continue
 
     last_rsi = rsi_series[r - 1]
