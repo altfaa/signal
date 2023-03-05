@@ -36,7 +36,7 @@ def good_make_table_volumes(df, out_filename, tittle, info):
     cost2 = info[2][1]
     cost3 = info[2][2]
 
-    y1 = 0.13
+    y1 = 0.133
     y2 = y1 - 0.04
     y3 = y2 - 0.03
 
