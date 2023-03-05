@@ -5,10 +5,11 @@ import pandas as pd
 import datetime
 import numpy as np
 import locale
+
 locale.setlocale(locale.LC_ALL, "")
 
 
-def good_make_table_volumes(df, out_filename, tittle):
+def good_make_table_volumes(df, out_filename, tittle, info):
     df = df.head(20)
     mpl.use('agg')  # отключение визуальной части
 
@@ -23,14 +24,28 @@ def good_make_table_volumes(df, out_filename, tittle):
     ax.bar_label(ax.containers[0])
     ax.axes.get_xaxis().set_visible(False)
 
-    ax.text(0.8, 0.3, "SBER", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
-             fontsize=16)
-    ax.text(0.8, 0.25, f"{454545454} лт.", horizontalalignment='left', verticalalignment='center',
-             transform=ax.transAxes, fontsize=14)
-    ax.text(0.8, 0.2, f"{454545454/1000000:.1f} млрд.₽", horizontalalignment='left', verticalalignment='center',
-            transform=ax.transAxes, fontsize=14)
-    ax.text(0.9, 0.03, "@moex signal", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes, fontsize=12)
+    name1 = info[0][0]
+    name2 = info[0][1]
+    name3 = info[0][2]
 
+    vol1 = info[1][0]
+    vol2 = info[1][1]
+    vol3 = info[1][2]
+
+    cost1 = info[2][0]
+    cost2 = info[2][1]
+    cost3 = info[2][2]
+
+    ax.text(0.8, 0.3, f"{name1}", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
+            fontsize=16)
+    ax.text(0.8, 0.25, f"{vol1} лт.", horizontalalignment='left', verticalalignment='center',
+            transform=ax.transAxes, fontsize=14)
+    ax.text(0.8, 0.2, f"{cost1 / 1000000:.1f} млрд.₽", horizontalalignment='left', verticalalignment='center',
+            transform=ax.transAxes, fontsize=14)
+
+
+    ax.text(0.9, 0.03, "@moex signal", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
+            fontsize=12)
 
     plt.show()
     plt.savefig(out_filename, dpi=200, bbox_inches='tight')
