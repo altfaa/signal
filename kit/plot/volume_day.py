@@ -36,25 +36,25 @@ def good_make_table_volumes(df, out_filename, tittle, info):
     cost2 = info[2][1]
     cost3 = info[2][2]
 
-    ax.text(0.4, 0.3, f"{name1}", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
+    ax.text(0.2, 0.1, f"{name1}", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
             fontsize=16)
-    ax.text(0.4, 0.26, f"{vol1/ 1000000:.1f} млн.лотов.", horizontalalignment='left', verticalalignment='center',
+    ax.text(0.2, 0.06, f"{vol1/ 1000000:.1f} млн.лотов.", horizontalalignment='left', verticalalignment='center',
             transform=ax.transAxes, fontsize=14)
-    ax.text(0.4, 0.23, f"{cost1 / 1000000000:.1f} млрд. ₽", horizontalalignment='left', verticalalignment='center',
+    ax.text(0.2, 0.03, f"{cost1 / 1000000000:.1f} млрд. ₽", horizontalalignment='left', verticalalignment='center',
             transform=ax.transAxes, fontsize=14)
 
-    ax.text(0.6, 0.3, f"{name2}", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
+    ax.text(0.4, 0.1, f"{name2}", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
             fontsize=16)
-    ax.text(0.6, 0.26, f"{vol2 / 1000000:.1f} млн.лотов.", horizontalalignment='left', verticalalignment='center',
+    ax.text(0.4, 0.06, f"{vol2 / 1000000:.1f} млн.лотов.", horizontalalignment='left', verticalalignment='center',
             transform=ax.transAxes, fontsize=14)
-    ax.text(0.6, 0.23, f"{cost2 / 1000000000:.1f} млрд. ₽", horizontalalignment='left', verticalalignment='center',
+    ax.text(0.4, 0.03, f"{cost2 / 1000000000:.1f} млрд. ₽", horizontalalignment='left', verticalalignment='center',
             transform=ax.transAxes, fontsize=14)
 
-    ax.text(0.8, 0.3, f"{name3}", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
+    ax.text(0.6, 0.1, f"{name3}", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
             fontsize=16)
-    ax.text(0.8, 0.26, f"{vol3 / 1000000:.1f} млн.лотов.", horizontalalignment='left', verticalalignment='center',
+    ax.text(0.6, 0.06, f"{vol3 / 1000000:.1f} млн.лотов.", horizontalalignment='left', verticalalignment='center',
             transform=ax.transAxes, fontsize=14)
-    ax.text(0.8, 0.23, f"{cost3 / 1000000000:.1f} млрд. ₽", horizontalalignment='left', verticalalignment='center',
+    ax.text(0.6, 0.03, f"{cost3 / 1000000000:.1f} млрд. ₽", horizontalalignment='left', verticalalignment='center',
             transform=ax.transAxes, fontsize=14)
 
 
