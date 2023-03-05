@@ -44,8 +44,8 @@ def good_make_table_volumes(df, out_filename, tittle, info):
             transform=ax.transAxes, fontsize=14)
 
 
-    ax.text(0.9, 0.03, "@moex signal", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
-            fontsize=12)
+    ax.text(0.87, 0.03, "@moex signal", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
+            fontsize=14)
 
     plt.show()
     plt.savefig(out_filename, dpi=200, bbox_inches='tight')
