@@ -44,9 +44,22 @@ def get_df_all_volumes(date):
 
     df_out = df.sort_values('%', ascending=False)
 
-    name = df_out.Name.iloc[0]
-    vol = df_out.Volumes.iloc[0]
-    cost = df_out.Cost.iloc[0]
+    name = []
+    vol = []
+    cost = []
+
+    name.append(df_out.Name.iloc[0])
+    vol.append(df_out.Volumes.iloc[0])
+    cost.append(df_out.Cost.iloc[0])
+
+    name.append(df_out.Name.iloc[1])
+    vol.append(df_out.Volumes.iloc[1])
+    cost.append(df_out.Cost.iloc[1])
+
+    name.append(df_out.Name.iloc[2])
+    vol.append(df_out.Volumes.iloc[2])
+    cost.append(df_out.Cost.iloc[3])
+
     info_list = [name, vol, cost, total]
 
     return df_out, info_list
