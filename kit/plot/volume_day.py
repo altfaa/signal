@@ -23,11 +23,11 @@ def good_make_table_volumes(df, out_filename, tittle):
     ax.bar_label(ax.containers[0])
     ax.axes.get_xaxis().set_visible(False)
 
-    ax.text(0.01, 0.1, "SBER", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
+    ax.text(0.8, 0.3, "SBER", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
              fontsize=16)
-    ax.text(0.01, 0.2, f"Volume: {454545454}", horizontalalignment='left', verticalalignment='center',
+    ax.text(0.8, 0.2, f"Volume: {454545454}lt", horizontalalignment='left', verticalalignment='center',
              transform=ax.transAxes)
-    ax.text(0.83, 0.1, "@moex signal", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes)
+    ax.text(0.87, 0.01, "@moex signal", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes)
 
 
     plt.show()
