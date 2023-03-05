@@ -38,9 +38,9 @@ def good_make_table_volumes(df, out_filename, tittle, info):
 
     ax.text(0.8, 0.3, f"{name1}", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
             fontsize=16)
-    ax.text(0.8, 0.25, f"{vol1/ 1000000:.1f} млн.лт.", horizontalalignment='left', verticalalignment='center',
+    ax.text(0.8, 0.25, f"{vol1/ 1000000:.1f} млн.лотов.", horizontalalignment='left', verticalalignment='center',
             transform=ax.transAxes, fontsize=14)
-    ax.text(0.8, 0.2, f"{cost1 / 1000000000:.1f} млрд.₽", horizontalalignment='left', verticalalignment='center',
+    ax.text(0.8, 0.22, f"{cost1 / 1000000000:.1f} млрд. ₽", horizontalalignment='left', verticalalignment='center',
             transform=ax.transAxes, fontsize=14)
 
 
