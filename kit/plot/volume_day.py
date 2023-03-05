@@ -25,9 +25,11 @@ def good_make_table_volumes(df, out_filename, tittle):
 
     ax.text(0.8, 0.3, "SBER", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
              fontsize=16)
-    ax.text(0.8, 0.2, f"Volume: {454545454}lt", horizontalalignment='left', verticalalignment='center',
-             transform=ax.transAxes)
-    ax.text(0.87, 0.01, "@moex signal", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes)
+    ax.text(0.8, 0.25, f"{454545454} лт.", horizontalalignment='left', verticalalignment='center',
+             transform=ax.transAxes, fontsize=14)
+    ax.text(0.8, 0.2, f"{454545454/1000000:.1f} млрд.₽", horizontalalignment='left', verticalalignment='center',
+            transform=ax.transAxes, fontsize=14)
+    ax.text(0.9, 0.03, "@moex signal", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes, fontsize=12)
 
 
     plt.show()
