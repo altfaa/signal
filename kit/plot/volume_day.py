@@ -40,7 +40,7 @@ def good_make_table_volumes(df, out_filename, tittle, info):
     y2 = 0.07
     y3 = 0.04
 
-    x1 = 0.2
+    x1 = 0.22
     x2 = x1 + 0.2
     x3 = x2 + 0.2
 
