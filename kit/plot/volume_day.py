@@ -20,7 +20,7 @@ def good_make_table_volumes(df, out_filename, tittle, info):
     ax.set_yticks(y_pos, labels=tickers)
     ax.invert_yaxis()  # labels read top-to-bottom
     ax.set_xlabel('Процент сделок')
-    ax.set_title(f'Сравнение акций MOEX по объемам торговли {tittle}, %', fontsize=18)
+    ax.set_title(f'Лидеры тороговли MOEX {tittle}, %', fontsize=16)
     ax.bar_label(ax.containers[0])
     ax.axes.get_xaxis().set_visible(False)
 
