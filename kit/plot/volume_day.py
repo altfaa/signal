@@ -1,8 +1,6 @@
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import pandas
-import pandas as pd
-import datetime
+from kit.names.channel import CHANNEL_NAME
 import numpy as np
 import locale
 
@@ -67,7 +65,7 @@ def good_make_table_volumes(df, out_filename, tittle, info):
 
 
 
-    ax.text(0.87, 0.03, "@moex signal", horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
+    ax.text(0.87, 0.03, CHANNEL_NAME, horizontalalignment='left', verticalalignment='center', transform=ax.transAxes,
             fontsize=14)
 
     plt.show()
